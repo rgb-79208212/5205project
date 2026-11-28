@@ -1,0 +1,8 @@
+mcp==1.30.0
+httpx==0.28.1
+python-dotenv==1.2.4
+jsonschema==4.26.0
+pypdf==7.1.1
+fonttools>=4.50,<5
+fastembed==0.9.1
+flashrank==0.2.10

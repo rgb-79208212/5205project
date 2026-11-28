@@ -1,0 +1,179 @@
+{
+  "type": "object",
+  "required": [
+    "checks",
+    "followups",
+    "coverage",
+    "comparisons"
+  ],
+  "properties": {
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "status",
+          "reason"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "supported",
+              "partial",
+              "unsupported",
+              "conflict"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 600
+          }
+        }
+      }
+    },
+    "followups": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "question_id",
+          "query",
+          "reason"
+        ],
+        "properties": {
+          "question_id": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 180
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": [
+          "question_id",
+          "criterion_id",
+          "status",
+          "claim_ids",
+          "reason"
+        ],
+        "properties": {
+          "question_id": {
+            "type": "string"
+          },
+          "criterion_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "met",
+              "missing",
+              "partial",
+              "conflict"
+            ]
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "comparisons": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_ids",
+          "relationship",
+          "conditions",
+          "reason"
+        ],
+        "properties": {
+          "claim_ids": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "relationship": {
+            "enum": [
+              "comparable_conflict",
+              "different_conditions",
+              "consistent",
+              "insufficient_context"
+            ]
+          },
+          "conditions": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "object",
+              "required": [
+                "task",
+                "dataset",
+                "metric",
+                "protocol"
+              ],
+              "properties": {
+                "task": {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                "dataset": {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                "metric": {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                "protocol": {
+                  "type": "string",
+                  "maxLength": 200
+                }
+              }
+            }
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 600
+          }
+        }
+      }
+    }
+  }
+}

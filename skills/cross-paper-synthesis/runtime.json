@@ -1,0 +1,12 @@
+{
+  "kind": "method",
+  "version": 1,
+  "base_role": "reader",
+  "output_schema": "output.schema.json",
+  "capabilities": [
+    "read_source",
+    "get_passages",
+    "register_evidence",
+    "search_passages"
+  ]
+}

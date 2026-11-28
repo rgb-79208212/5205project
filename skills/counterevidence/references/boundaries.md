@@ -1,0 +1,1 @@
+Separate an explicit reported failure, a limitation stated by an author, incompatible experiment conditions, and a counterexample you did not find. Scope negative conclusions to the inspected evidence; distinguish non-comparability from contradiction.

@@ -1,0 +1,14 @@
+[
+  {"id":"R01","corpus":"rag_source","query":"Where are facts kept outside the neural network's own learned weights?","gold_passages":["P0001"]},
+  {"id":"R02","corpus":"rag_source","query":"Does the model commit to one retrieved text for the entire answer or can it choose a new text as it emits each word?","gold_passages":["P0008","P0009"]},
+  {"id":"R03","corpus":"realm_pretraining","query":"How does the lookup structure stay useful while document representations keep changing during training?","gold_passages":["P0014","P0015"]},
+  {"id":"R04","corpus":"realm_pretraining","query":"How can training reward the search component without labels saying which document is relevant?","gold_passages":["P0013"]},
+  {"id":"R05","corpus":"dpr_encoders","query":"How is a natural-language question turned into something the search system can look up?","gold_passages":["P0007"]},
+  {"id":"R06","corpus":"dpr_encoders","query":"Which text representations are computed in advance rather than recomputed for every user request?","gold_passages":["P0006","P0007"]},
+  {"id":"R07","corpus":"lora_numeric","query":"During adaptation, which original neural-network values remain untouched?","gold_passages":["P0001","P0004","P0011"]},
+  {"id":"R08","corpus":"lora_numeric","query":"How can the weight update be represented with fewer trainable values?","gold_passages":["P0011"]},
+  {"id":"R09","corpus":"adam_2014","query":"Which two running summaries of the gradient does this optimizer maintain?","gold_passages":["P0005"]},
+  {"id":"R10","corpus":"adam_2014","query":"Why does the algorithm adjust its running averages before taking a step?","gold_passages":["P0006"]},
+  {"id":"R11","corpus":"graph_attention","query":"Can a node assign attention to every other vertex, or only a restricted set?","gold_passages":["P0010"]},
+  {"id":"R12","corpus":"graph_attention","query":"How are outputs from several parallel attention mechanisms combined in intermediate layers?","gold_passages":["P0011"]}
+]

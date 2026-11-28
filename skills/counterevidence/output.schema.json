@@ -1,0 +1,212 @@
+{
+  "type": "object",
+  "required": [
+    "claims"
+  ],
+  "properties": {
+    "claims": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "question_id",
+              "text",
+              "passage_id",
+              "quote",
+              "numeric_facts"
+            ],
+            "properties": {
+              "question_id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 800
+              },
+              "passage_id": {
+                "type": "string"
+              },
+              "quote": {
+                "type": "string",
+                "minLength": 25,
+                "maxLength": 1800
+              },
+              "numeric_facts": {
+                "type": "array",
+                "maxItems": 12,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "subject",
+                    "metric",
+                    "value",
+                    "unit",
+                    "condition",
+                    "source_span",
+                    "claim_span"
+                  ],
+                  "properties": {
+                    "subject": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "metric": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "value": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "unit": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "condition": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "source_span": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "claim_span": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "evidence_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "question_id",
+              "text",
+              "kind",
+              "refs",
+              "numeric_facts"
+            ],
+            "properties": {
+              "question_id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 1000
+              },
+              "kind": {
+                "enum": [
+                  "synthesis",
+                  "inference",
+                  "derived"
+                ]
+              },
+              "refs": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 6,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "numeric_facts": {
+                "type": "array",
+                "maxItems": 12,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "subject",
+                    "metric",
+                    "value",
+                    "unit",
+                    "condition",
+                    "source_span",
+                    "claim_span"
+                  ],
+                  "properties": {
+                    "subject": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "metric": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "value": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "unit": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "condition": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "source_span": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "claim_span": {
+                      "type": "string",
+                      "maxLength": 800
+                    },
+                    "evidence_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "calculation": {
+                "type": "object",
+                "required": [
+                  "operation",
+                  "input_claim_ids",
+                  "input_fact_indices"
+                ],
+                "properties": {
+                  "operation": {
+                    "enum": [
+                      "difference",
+                      "ratio",
+                      "percent_change"
+                    ]
+                  },
+                  "input_claim_ids": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "input_fact_indices": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

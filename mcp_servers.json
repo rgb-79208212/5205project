@@ -1,0 +1,4 @@
+[
+  {"name": "discovery", "script": "discovery_mcp.py"},
+  {"name": "library", "script": "data_mcp.py"}
+]

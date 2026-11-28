@@ -1,0 +1,32 @@
+{
+  "rag_source": {
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "url": "https://arxiv.org/pdf/2005.11401v4",
+    "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233"
+  },
+  "realm_pretraining": {
+    "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+    "url": "https://arxiv.org/pdf/2002.08909v1",
+    "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363"
+  },
+  "dpr_encoders": {
+    "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+    "url": "https://arxiv.org/pdf/2004.04906v3",
+    "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f"
+  },
+  "lora_numeric": {
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "url": "https://arxiv.org/pdf/2106.09685",
+    "sha256": "e9a0d3128767db616085dc0f4e6e455e672e89af823e8ed1282793682787395a"
+  },
+  "adam_2014": {
+    "title": "Adam: A Method for Stochastic Optimization",
+    "url": "https://arxiv.org/pdf/1412.6980",
+    "sha256": "eab9c73ae2ceda884b94830bda99312254bac4806f6c9f045cbab90721ecda31"
+  },
+  "graph_attention": {
+    "title": "Graph Attention Networks",
+    "url": "https://arxiv.org/pdf/1710.10903",
+    "sha256": "a7d811a44e1c65bf27da3a01859f23a8edbe33b8f96114b4b5066aedb078f284"
+  }
+}

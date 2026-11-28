@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090e1a">
+  <title>Workspace — Deep Research Studio</title>
+  <link href="/style.css" rel="stylesheet">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+            <rect x="2" y="12" width="4" height="10" rx="1.2" fill="#818cf8"/>
+            <rect x="10" y="7" width="4" height="15" rx="1.2" fill="#34d399"/>
+            <rect x="18" y="2" width="4" height="20" rx="1.2" fill="#f8fafc"/>
+          </svg>
+        </span>
+        <span>Deep Research Studio</span>
+      </a>
+      <div class="mast-right">
+        <span id="engine-status" class="engine-pill"><i class="dot"></i><span>Ready</span></span>
+        <a class="mast-link" href="/">← Overview</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="command-hero">
+    <canvas id="hero-particles" class="hero-particles" aria-hidden="true"></canvas>
+    <div class="wrap command-inner">
+      <div class="command-copy">
+        <span class="hero-kicker">Evidence-Driven Research Workspace</span>
+        <h1>What would you like to research?</h1>
+        <p>Read public sources, inspect supporting passages, and follow evidence gaps before reviewing a scoped, cited answer.</p>
+      </div>
+
+      <form id="question-form" class="search-form">
+        <label class="sr-only" for="question">Research question</label>
+        <div class="input-shell">
+          <input
+            id="question"
+            type="text"
+            maxlength="500"
+            required
+            autocomplete="off"
+            placeholder="Ask a focused question about a paper, a method comparison, or its supporting evidence…"
+          >
+          <button id="submit-btn" type="submit">
+            <span class="btn-label">Research</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+      </form>
+
+      <div class="hero-meta-bar">
+        <span>2 MCP Services · 8 Research Tools</span>
+        <span>·</span>
+        <span>4 Roles · Composable Research Skills</span>
+        <span>·</span>
+        <span>Evidence &amp; Coverage Checks</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap main-stack">
+    <section id="notice" class="notice-host" aria-live="polite"></section>
+
+    <section id="starter-deck" class="starter-deck" aria-labelledby="starter-heading">
+      <div class="starter-head">
+        <div>
+          <h2 id="starter-heading">Suggested research topics</h2>
+          <p>Select a prompt to search, read, review and follow evidence gaps within a bounded budget.</p>
+        </div>
+      </div>
+
+      <div class="starter-grid">
+        <button type="button" class="starter-card" data-q="In the original Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks paper, what external information does the retriever supply to the generator? Answer this one factual point from the original paper, without numerical benchmarks or comparisons.">
+          <span class="starter-tag indigo">Original Paper</span>
+          <h3>What Does the RAG Retriever Supply?</h3>
+          <p>Reads the original paper and traces a scoped architecture finding to exact text.</p>
+          <span class="starter-cta">Run investigation →</span>
+        </button>
+
+        <button type="button" class="starter-card" data-q="Explain the background of Model Context Protocol (MCP) and review recent academic publications on LLM tool use.">
+          <span class="starter-tag emerald">Protocol &amp; Literature</span>
+          <h3>Model Context Protocol &amp; Tool Use</h3>
+          <p>Separates conceptual background from evidence in accessible scholarly publications.</p>
+          <span class="starter-cta">Run investigation →</span>
+        </button>
+
+        <button type="button" class="starter-card" data-q="Compare Retrieval-Augmented Generation (RAG) and fine-tuning approaches in recent LLM literature and open benchmark datasets.">
+          <span class="starter-tag sky">Methods Comparison</span>
+          <h3>RAG vs. Fine-Tuning in Modern LLMs</h3>
+          <p>Examines comparable evidence and limitations; leaves unsupported rankings unresolved.</p>
+          <span class="starter-cta">Run investigation →</span>
+        </button>
+      </div>
+
+      <div class="stack-strip" aria-label="Active system components">
+        <div class="stack-pill"><strong>Evidence MCP</strong><span>Search · Read · Passages · Quotes</span></div>
+        <div class="stack-pill"><strong>Progressive Skills</strong><span>Planner · Reader · Auditor · Writer</span></div>
+        <div class="stack-pill"><strong>Research Coverage</strong><span>Criteria · Study Groups · Open Gaps</span></div>
+      </div>
+    </section>
+
+    <section id="workflow-panel" class="progress-card" hidden aria-label="Research progress">
+      <div class="progress-top">
+        <div class="progress-headline">
+          <span id="wf-dot" class="live-dot" aria-hidden="true"></span>
+          <strong id="wf-status" role="status">Starting research…</strong>
+        </div>
+        <div class="progress-controls">
+          <span id="wf-skill" class="tech-only skill-pill" hidden></span>
+          <span id="wf-timer" class="timer-pill">0.0s</span>
+          <button id="tech-toggle" type="button" class="btn-text" aria-pressed="false">Show MCP details</button>
+        </div>
+      </div>
+
+      <ol class="phase-bar" id="phase-bar" aria-label="Research stages">
+        <li data-phase="planning"><span class="p-dot"></span><span>Plan</span></li>
+        <li data-phase="fetching"><span class="p-dot"></span><span>Retrieve</span></li>
+        <li data-phase="verifying"><span class="p-dot"></span><span>Verify</span></li>
+        <li data-phase="synthesizing"><span class="p-dot"></span><span>Report</span></li>
+      </ol>
+
+      <div id="skills-trace" class="tech-only skills-trace" hidden></div>
+      <ol id="step-list" class="step-list"></ol>
+      <div id="verify-note" class="verify-note" hidden></div>
+    </section>
+
+    <article id="live-report" class="survey-report" hidden></article>
+  </main>
+
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="evidence-drawer" class="evidence-drawer" hidden aria-label="Evidence inspector" aria-modal="true" role="dialog">
+    <div class="drawer-head">
+      <div>
+        <span class="drawer-kicker">Source Traceability</span>
+        <h2>Evidence Inspector</h2>
+      </div>
+      <button id="drawer-close" type="button" class="icon-btn" aria-label="Close evidence inspector">✕</button>
+    </div>
+    <div id="drawer-tabs" class="drawer-tabs" role="tablist" aria-label="Evidence items"></div>
+    <div id="drawer-content" class="drawer-content"></div>
+  </aside>
+</body>
+</html>

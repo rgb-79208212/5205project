@@ -1,0 +1,1 @@
+Compare task, dataset and split, metric and direction, baseline, training setup and evaluation protocol. Shared keywords or similar numbers do not establish comparability. Attend and marginalize can describe different levels of the same mechanism; do not manufacture a dichotomy from vocabulary alone.
